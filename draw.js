@@ -16,13 +16,16 @@ var snake;
     fruit.draw();
     snake.update();
     snake.draw();
+    if (snake.eat(fruit)) {
+      fruit.pickLocation();
+    }
   }, 250);
 })();
 
 window.addEventListener("keydown", (event) => {
   console.log(event);
   const direction = event.key.replace("Arrow", "");
-  console.log(direction);
+
   snake.changeDirection(direction);
 });
 console.log("c", canvas);
